@@ -9,6 +9,10 @@ function buttonClick(value){
 	if (isNaN(value)){
 		handleSymbol(value);
 	}else {
+		if(clickEquals){
+			handleSymbol('C');
+			screen.innerText = buffer;
+		}
 		handleNumber(value);
 	}
 	screen.innerText = buffer;
@@ -31,6 +35,7 @@ function handleSymbol(symbol){
 	// 	buffer = "0";
 	// 	runningTotal = 0;
 	// }
+	clickEquals = false;
 	switch	(symbol){
 		case "C":
 			buffer = "0";
@@ -55,6 +60,7 @@ function handleSymbol(symbol){
 			//after the display, we set our running total to 0.
 			runningTotal = 0;
 			//operation done and finish.
+			clickEquals = true;
 			break;
 			// No seven Ends here
 			//No eight arror sign
